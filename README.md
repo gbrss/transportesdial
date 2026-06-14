@@ -1,6 +1,3 @@
-Aquí tienes el README.md actualizado con la sección de autores mostrando el perfil de GitHub:
-
----
 # 🚛 Transportes Dial Web
 
 Plataforma web moderna para la gestión y seguimiento de operaciones de transporte. Este proyecto proporciona una interfaz eficiente construida con tecnologías actuales del ecosistema React.
