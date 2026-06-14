@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Droplets, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo-transportes-dial.png.asset.json";
 
 const links = [
   { href: "#nosotros", label: "Nosotros" },
@@ -28,10 +29,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between py-4">
-        <a href="#inicio" className="flex items-center gap-2 group">
-          <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary shadow-elegant transition-smooth group-hover:scale-110`}>
-            <Droplets className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
-          </div>
+        <a href="#inicio" className="flex items-center gap-3 group">
+          <img
+            src={logo.url}
+            alt="Logo Transportes Dial"
+            className="h-12 w-12 rounded-full object-cover shadow-elegant transition-smooth group-hover:scale-110"
+          />
           <div className="flex flex-col leading-tight">
             <span className={`font-display font-bold text-lg ${scrolled ? "text-primary-deep" : "text-white"}`}>
               Transportes Dial

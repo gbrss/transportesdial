@@ -1,4 +1,5 @@
-import { Droplets, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Facebook, Instagram, MessageCircle } from "lucide-react";
+import logo from "@/assets/logo-transportes-dial.png.asset.json";
 
 const Footer = () => (
   <footer className="bg-primary-deep text-white">
@@ -6,9 +7,7 @@ const Footer = () => (
       <div className="grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div className="h-10 w-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow">
-              <Droplets className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
-            </div>
+            <img src={logo.url} alt="Logo Transportes Dial" className="h-12 w-12 rounded-full object-cover shadow-glow" />
             <div>
               <div className="font-display font-bold text-lg">Transportes Dial</div>
               <div className="text-[10px] uppercase tracking-widest text-white/60">Agua Potable · Chile</div>
