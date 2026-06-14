@@ -63,9 +63,16 @@ const Contact = () => {
 
     setLoading(true);
     try {
+      const payload = {
+        name: parsed.data.name,
+        phone: parsed.data.phone,
+        email: parsed.data.email,
+        service: parsed.data.service,
+        message: parsed.data.message,
+      };
       const { data: inserted, error: dbError } = await supabase
         .from("quote_requests")
-        .insert(parsed.data)
+        .insert(payload)
         .select("id")
         .single();
 
