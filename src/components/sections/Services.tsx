@@ -1,4 +1,5 @@
 import { Truck, Droplets, ArrowRight, Check } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 const WA = (msg: string) => `https://wa.me/56952076192?text=${encodeURIComponent(msg)}`;
 
@@ -32,41 +33,40 @@ const Services = () => (
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <StaggerContainer className="grid md:grid-cols-2 gap-8" stagger={0.18}>
         {services.map((s) => (
-          <article
-            key={s.title}
-            className="group relative bg-card rounded-3xl p-8 lg:p-10 border border-border/60 shadow-card-soft transition-smooth hover:-translate-y-2 hover:shadow-elegant overflow-hidden"
-          >
-            <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-gradient-primary opacity-10 group-hover:opacity-20 transition-smooth" />
-            <div className="relative">
-              <div className="h-16 w-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-6 shadow-elegant">
-                <s.icon className="h-8 w-8 text-primary-foreground" strokeWidth={2} />
+          <StaggerItem key={s.title} variant="scaleUp">
+            <article className="group relative bg-card rounded-3xl p-8 lg:p-10 border border-border/60 shadow-card-soft transition-smooth hover:-translate-y-2 hover:shadow-elegant overflow-hidden">
+              <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-gradient-primary opacity-10 group-hover:opacity-20 transition-smooth" />
+              <div className="relative">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-6 shadow-elegant">
+                  <s.icon className="h-8 w-8 text-primary-foreground" strokeWidth={2} />
+                </div>
+                <h3 className="font-display text-2xl font-bold text-primary-deep mb-3">{s.title}</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">{s.desc}</p>
+                <ul className="space-y-2.5 mb-8">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-center gap-3 text-sm">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary">
+                        <Check className="h-3 w-3 text-primary" strokeWidth={3} />
+                      </span>
+                      <span className="text-foreground">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={WA(s.cta)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all"
+                >
+                  Solicitar cotización <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
-              <h3 className="font-display text-2xl font-bold text-primary-deep mb-3">{s.title}</h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">{s.desc}</p>
-              <ul className="space-y-2.5 mb-8">
-                {s.features.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-sm">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary">
-                      <Check className="h-3 w-3 text-primary" strokeWidth={3} />
-                    </span>
-                    <span className="text-foreground">{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={WA(s.cta)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all"
-              >
-                Solicitar cotización <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </article>
+            </article>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </div>
   </section>
 );
