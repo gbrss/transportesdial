@@ -1,5 +1,6 @@
 import { Facebook, Instagram, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo-transportes-dial.png.asset.json";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const Footer = () => (
   <footer className="bg-primary-deep text-white">
