@@ -80,7 +80,7 @@ const Contact = () => {
 
       // Disparar envío de correos (al equipo y confirmación al cliente)
       const { error: fnError } = await supabase.functions.invoke("send-quote-email", {
-        body: { id: inserted.id, ...parsed.data },
+        body: { id: inserted.id, ...payload },
       });
       if (fnError) console.warn("Email function error:", fnError);
 
