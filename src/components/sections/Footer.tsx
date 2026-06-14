@@ -69,6 +69,7 @@ const Footer = () => (
         <p>Servicio de agua potable y camiones aljibe en Chile.</p>
       </div>
     </div>
+    </ScrollReveal>
   </footer>
 );
 
