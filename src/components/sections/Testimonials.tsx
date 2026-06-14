@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 const testimonials = [
   {
@@ -27,31 +28,30 @@ const Testimonials = () => (
           Clientes que confían en nosotros
         </h2>
       </div>
-      <div className="grid md:grid-cols-3 gap-6">
+      <StaggerContainer className="grid md:grid-cols-3 gap-6" stagger={0.15}>
         {testimonials.map((t, i) => (
-          <article
-            key={i}
-            className="relative bg-card rounded-2xl p-8 shadow-card-soft border border-border/50 transition-smooth hover:-translate-y-1 hover:shadow-elegant"
-          >
-            <Quote className="absolute top-6 right-6 h-10 w-10 text-primary/10" />
-            <div className="flex gap-1 mb-4">
-              {[...Array(5)].map((_, j) => (
-                <Star key={j} className="h-4 w-4 fill-primary-glow text-primary-glow" />
-              ))}
-            </div>
-            <p className="text-foreground leading-relaxed mb-6">"{t.text}"</p>
-            <div className="flex items-center gap-3 pt-4 border-t border-border">
-              <div className="h-11 w-11 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-bold">
-                {t.name.charAt(0)}
+          <StaggerItem key={i} variant={i % 2 === 0 ? "slideLeft" : "slideRight"}>
+            <article className="relative bg-card rounded-2xl p-8 shadow-card-soft border border-border/50 transition-smooth hover:-translate-y-1 hover:shadow-elegant">
+              <Quote className="absolute top-6 right-6 h-10 w-10 text-primary/10" />
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} className="h-4 w-4 fill-primary-glow text-primary-glow" />
+                ))}
               </div>
-              <div>
-                <div className="font-semibold text-primary-deep">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
+              <p className="text-foreground leading-relaxed mb-6">"{t.text}"</p>
+              <div className="flex items-center gap-3 pt-4 border-t border-border">
+                <div className="h-11 w-11 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-bold">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-semibold text-primary-deep">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}</div>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </div>
   </section>
 );
