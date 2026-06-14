@@ -4,6 +4,7 @@ import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 import g6 from "@/assets/gallery-6.jpg";
+import { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 const images = [
   { src: g1, alt: "Entrega de agua potable a vivienda rural" },
@@ -23,10 +24,11 @@ const Gallery = () => (
           Nuestro trabajo en terreno
         </h2>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+      <StaggerContainer className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5" stagger={0.1}>
         {images.map((img, i) => (
-          <div
+          <StaggerItem
             key={i}
+            variant="maskReveal"
             className={`group relative overflow-hidden rounded-2xl shadow-card-soft ${
               i === 0 ? "lg:col-span-2 lg:row-span-2 aspect-square" : "aspect-square"
             }`}
@@ -40,9 +42,9 @@ const Gallery = () => (
               className="h-full w-full object-cover transition-smooth group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </div>
   </section>
 );

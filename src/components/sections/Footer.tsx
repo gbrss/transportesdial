@@ -1,8 +1,10 @@
 import { Facebook, Instagram, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo-transportes-dial.png.asset.json";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const Footer = () => (
   <footer className="bg-primary-deep text-white">
+    <ScrollReveal variant="fadeBlur">
     <div className="container py-16">
       <div className="grid md:grid-cols-3 gap-10">
         <div>
@@ -67,6 +69,7 @@ const Footer = () => (
         <p>Servicio de agua potable y camiones aljibe en Chile.</p>
       </div>
     </div>
+    </ScrollReveal>
   </footer>
 );
 
